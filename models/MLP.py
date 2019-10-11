@@ -4,13 +4,18 @@ import torch.nn.functional as F
 
 
 class MLP(nn.Module):
+    '''
+    :parameter
+    'flatten': 是否把二维图像摊平,
+    'num_inpus': 输入的特征数,
+    'num_outputs': 输出的类别数,
+    'num_hiddens': 每个隐藏层的神经元数量 e.g., [256, 128, 64],
+    '''
     def __init__(self, args):
         super(MLP, self).__init__()
 
         self.args = args
         print('MLP get parameters:{}'.format(args))
-
-        self.verbose = self.args.verbose
 
         num_inputs = self.args.num_inpus
         num_outputs = self.args.num_outputs
